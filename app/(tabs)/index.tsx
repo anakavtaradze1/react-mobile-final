@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
   errorText: {
     color: "red",
     fontSize: 24,
+    fontFamily: "Rubik",
     marginTop: 20,
   },
 });

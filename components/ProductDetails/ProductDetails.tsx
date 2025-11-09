@@ -1,7 +1,9 @@
+import { addToCart } from "@/app/(tabs)/cart";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Image } from "expo-image";
 import React from "react";
 import {
+  Alert,
   ScrollView,
   StyleSheet,
   Text,
@@ -31,6 +33,11 @@ const ProductDetails = ({
   isFavorite,
   onToggleFavorite,
 }: ProductDetailsProps) => {
+  const handleAddToCart = async () => {
+    await addToCart(product);
+    Alert.alert("Success", "Product added to cart!");
+  };
+
   return (
     <ScrollView
       contentContainerStyle={styles.container}
@@ -98,7 +105,11 @@ const ProductDetails = ({
         </View>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.addToCartButton} activeOpacity={0.8}>
+          <TouchableOpacity
+            style={styles.addToCartButton}
+            activeOpacity={0.8}
+            onPress={handleAddToCart}
+          >
             <Ionicons name="bag-outline" size={20} color="white" />
             <Text style={styles.addToCartText}>Add to Cart</Text>
           </TouchableOpacity>
@@ -177,11 +188,13 @@ const styles = StyleSheet.create({
   categoryText: {
     fontSize: 12,
     color: "white",
+    fontFamily: "Rubik",
     fontWeight: "700",
     letterSpacing: 0.5,
   },
   title: {
     fontSize: 26,
+    fontFamily: "Rubik",
     fontWeight: "800",
     color: "#000",
     lineHeight: 30,
@@ -198,12 +211,14 @@ const styles = StyleSheet.create({
   },
   ratingText: {
     fontSize: 16,
+    fontFamily: "Rubik",
     fontWeight: "600",
     color: "#333",
     marginRight: 8,
   },
   ratingCount: {
     fontSize: 14,
+    fontFamily: "Rubik",
     color: "#666",
   },
   priceContainer: {
@@ -213,6 +228,7 @@ const styles = StyleSheet.create({
   },
   price: {
     fontSize: 30,
+    fontFamily: "Rubik",
     fontWeight: "800",
     color: "#000",
     marginRight: 12,
@@ -226,6 +242,7 @@ const styles = StyleSheet.create({
   priceTagText: {
     fontSize: 12,
     color: "white",
+    fontFamily: "Rubik",
     fontWeight: "600",
   },
   descriptionContainer: {
@@ -233,6 +250,7 @@ const styles = StyleSheet.create({
   },
   descriptionTitle: {
     fontSize: 20,
+    fontFamily: "Rubik",
     fontWeight: "700",
     color: "#000",
     marginBottom: 8,
@@ -240,6 +258,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 16,
+    fontFamily: "Rubik",
     lineHeight: 25,
     color: "#555",
     letterSpacing: 0.3,
@@ -265,6 +284,7 @@ const styles = StyleSheet.create({
   addToCartText: {
     color: "white",
     fontSize: 18,
+    fontFamily: "Rubik",
     fontWeight: "700",
   },
   buyNowButton: {
@@ -281,6 +301,7 @@ const styles = StyleSheet.create({
   buyNowText: {
     color: "#8B5CF6",
     fontSize: 18,
+    fontFamily: "Rubik",
     fontWeight: "700",
   },
   featuresContainer: {
@@ -296,6 +317,7 @@ const styles = StyleSheet.create({
   },
   featureText: {
     fontSize: 12,
+    fontFamily: "Rubik",
     fontWeight: "600",
     color: "#4f4f4fff",
     marginTop: 8,

@@ -56,15 +56,15 @@ export default ProductScreen;
 const styles = StyleSheet.create({
   loader: {
     flex: 1,
-    marginTop: 50,
     justifyContent: "center",
     alignItems: "center",
   },
   errorText: {
     fontSize: 18,
     color: "#ff4444",
+    fontFamily: "Rubik",
     fontWeight: "600",
+    justifyContent: "center",
     textAlign: "center",
-    marginTop: 50,
   },
 });

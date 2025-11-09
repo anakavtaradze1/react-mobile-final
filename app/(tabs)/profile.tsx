@@ -36,10 +36,6 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  useEffect(() => {
-    fetchUserData();
-  }, []);
-
   const fetchUserData = async () => {
     try {
       setLoading(true);
@@ -53,6 +49,10 @@ const Profile = () => {
     }
   };
 
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
   const handleLogout = async () => {
     try {
       await AsyncStorage.removeItem("userToken");
@@ -60,6 +60,13 @@ const Profile = () => {
     } catch (error) {
       console.error("Logout error:", error);
     }
+  };
+
+  const handleScroll = (event: any) => {
+    const slideIndex = Math.round(
+      event.nativeEvent.contentOffset.x / windowWidth
+    );
+    setCurrentSlide(slideIndex);
   };
 
   if (loading) {
@@ -78,13 +85,6 @@ const Profile = () => {
       </View>
     );
   }
-
-  const handleScroll = (event: any) => {
-    const slideIndex = Math.round(
-      event.nativeEvent.contentOffset.x / windowWidth
-    );
-    setCurrentSlide(slideIndex);
-  };
 
   return (
     <View style={styles.container}>
@@ -222,6 +222,7 @@ const styles = StyleSheet.create({
   loadingText: {
     marginTop: 16,
     fontSize: 16,
+    fontFamily: "Rubik",
     color: "#666",
   },
   errorContainer: {
@@ -233,6 +234,7 @@ const styles = StyleSheet.create({
   },
   errorText: {
     fontSize: 16,
+    fontFamily: "Rubik",
     color: "#ea1206ff",
     textAlign: "center",
     marginBottom: 20,
@@ -258,6 +260,7 @@ const styles = StyleSheet.create({
   },
   slideTitle: {
     fontSize: 30,
+    fontFamily: "Rubik",
     fontWeight: "700",
     color: "#333",
     marginLeft: 8,
@@ -277,11 +280,13 @@ const styles = StyleSheet.create({
   },
   avatarText: {
     fontSize: 24,
+    fontFamily: "Rubik",
     fontWeight: "700",
     color: "white",
   },
   userName: {
     fontSize: 24,
+    fontFamily: "Rubik",
     fontWeight: "700",
     color: "#333",
     marginBottom: 14,
@@ -295,6 +300,7 @@ const styles = StyleSheet.create({
   },
   userEmail: {
     fontSize: 18,
+    fontFamily: "Rubik",
     color: "#666",
     marginLeft: 6,
     textAlign: "center",
@@ -324,12 +330,14 @@ const styles = StyleSheet.create({
   infoLabel: {
     fontSize: 18,
     color: "#666",
+    fontFamily: "Rubik",
     fontWeight: "500",
     marginBottom: 8,
   },
   infoValue: {
     fontSize: 16,
     color: "#333",
+    fontFamily: "Rubik",
     fontWeight: "600",
   },
   logoutButton: {
@@ -350,6 +358,7 @@ const styles = StyleSheet.create({
   logoutButtonText: {
     color: "white",
     fontSize: 16,
+    fontFamily: "Rubik",
     fontWeight: "700",
     marginLeft: 8,
   },

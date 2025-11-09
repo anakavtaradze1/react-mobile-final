@@ -1,7 +1,9 @@
+import { addToCart } from "@/app/(tabs)/cart";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Image } from "expo-image";
 import { Link } from "expo-router";
 import {
+  Alert,
   FlatList,
   StyleSheet,
   Text,
@@ -9,23 +11,29 @@ import {
   View,
 } from "react-native";
 
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+};
+
 export type ProductsProps = {
-  products: {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    image: string;
-    rating: {
-      rate: number;
-      count: number;
-    };
-  }[];
+  products: Product[];
 };
 
 const Products = ({ products }: ProductsProps) => {
-    
+  const handleAddToCart = async (product: Product) => {
+    await addToCart(product);
+    Alert.alert("Success", `${product.title} added to cart!`);
+  };
+
   return (
     <FlatList
       bounces={false}
@@ -103,7 +111,7 @@ const Products = ({ products }: ProductsProps) => {
             <TouchableOpacity
               style={styles.cartButton}
               activeOpacity={0.5}
-              onPress={() => {}}
+              onPress={() => handleAddToCart(item)}
             >
               <Ionicons name="cart-outline" size={24} color="#6366F1" />
             </TouchableOpacity>
@@ -111,7 +119,7 @@ const Products = ({ products }: ProductsProps) => {
             <TouchableOpacity
               style={styles.addCartButton}
               activeOpacity={0.5}
-              onPress={() => {}}
+              onPress={() => handleAddToCart(item)}
             >
               <Text style={styles.addCartText}>Add to cart</Text>
             </TouchableOpacity>
@@ -148,6 +156,7 @@ const styles = StyleSheet.create({
   itemTitle: {
     marginTop: 20,
     fontSize: 18,
+    fontFamily: "Rubik",
     fontWeight: "700",
     lineHeight: 22,
     letterSpacing: 0.6,
@@ -156,17 +165,20 @@ const styles = StyleSheet.create({
   itemPrice: {
     fontSize: 22,
     color: "#8B5CF6",
+    fontFamily: "Rubik",
     fontWeight: "800",
     marginTop: 8,
   },
   itemPriceLabel: {
     fontSize: 16,
     color: "#666666",
+    fontFamily: "Rubik",
     fontWeight: "500",
   },
   itemDescription: {
     marginVertical: 8,
     fontSize: 14,
+    fontFamily: "Rubik",
     color: "#404040ff",
     lineHeight: 20,
     letterSpacing: 0.2,
@@ -183,6 +195,7 @@ const styles = StyleSheet.create({
   },
   ratingText: {
     fontSize: 14,
+    fontFamily: "Rubik",
     fontWeight: "700",
     color: "#333",
     marginRight: 8,
@@ -190,6 +203,7 @@ const styles = StyleSheet.create({
   ratingCount: {
     fontSize: 12,
     color: "#888",
+    fontFamily: "Rubik",
     fontWeight: "500",
   },
   buttonContainer: {
@@ -229,6 +243,7 @@ const styles = StyleSheet.create({
   addCartText: {
     color: "white",
     fontSize: 16,
+    fontFamily: "Rubik",
     fontWeight: "700",
   },
   imageIconContainer: {
@@ -269,6 +284,7 @@ const styles = StyleSheet.create({
   seeDetailsText: {
     color: "#6366F1",
     fontSize: 15,
+    fontFamily: "Rubik",
     fontWeight: "600",
     letterSpacing: 0.5,
   },

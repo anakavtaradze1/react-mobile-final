@@ -106,7 +106,6 @@ const Register = () => {
     >
       <ScrollView
         contentContainerStyle={styles.container}
-        showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
         bounces={false}
       >
@@ -115,6 +114,9 @@ const Register = () => {
             <Feather name="users" size={55} color="white" />
           </View>
           <View style={styles.iconGlow} />
+          <View style={styles.plusIconContainer}>
+            <Feather name="plus" size={16} color="white" />
+          </View>
         </View>
 
         <View style={styles.formContainer}>
@@ -338,6 +340,27 @@ const styles = StyleSheet.create({
     shadowRadius: 30,
     elevation: 5,
   },
+  plusIconContainer: {
+    position: "absolute",
+    bottom: -4,
+    right: 6,
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: "#7f4afcff",
+    borderWidth: 2,
+    borderColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#7f4afcff",
+    shadowOffset: {
+      width: 2,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 3,
+  },
   formContainer: {
     width: "100%",
   },
@@ -352,12 +375,14 @@ const styles = StyleSheet.create({
   },
   inputIcon: {
     fontSize: 16,
+    fontFamily: "Rubik",
     marginRight: 12,
     color: "#999",
   },
   textInput: {
     flex: 1,
     fontSize: 16,
+    fontFamily: "Rubik",
     color: "#333",
     paddingLeft: 10,
   },
@@ -378,12 +403,14 @@ const styles = StyleSheet.create({
   registerButtonText: {
     color: "white",
     fontSize: 18,
+    fontFamily: "Rubik",
     fontWeight: "600",
   },
   signInText: {
     color: "#7f4afcff",
     fontSize: 17,
     textAlign: "center",
+    fontFamily: "Rubik",
     fontWeight: "600",
     marginBottom: 20,
   },
@@ -399,6 +426,7 @@ const styles = StyleSheet.create({
   errorText: {
     color: "#ea1206ff",
     fontSize: 13,
+    fontFamily: "Rubik",
     marginTop: -8,
     marginBottom: 20,
     marginLeft: 20,

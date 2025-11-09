@@ -27,6 +27,7 @@ const _layout = () => {
         tabBarLabelStyle: {
           marginTop: 4,
           fontSize: 12,
+          fontFamily: "Rubik",
           fontWeight: "600",
         },
         headerStyle: {
@@ -107,6 +108,7 @@ const styles = StyleSheet.create({
   headerLeftText: {
     marginLeft: 20,
     fontSize: 24,
+    fontFamily: "Rubik",
     fontWeight: "800",
     color: "#000b1fff",
     letterSpacing: 0.5,
