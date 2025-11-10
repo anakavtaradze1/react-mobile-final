@@ -3,6 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
 import {
+  ActivityIndicator,
   Alert,
   FlatList,
   Image,
@@ -80,9 +81,18 @@ export const addToCart = async (product: Product) => {
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  const loadCart = () => {
-    getCart().then((items) => setCartItems(items));
+  const loadCart = async () => {
+    try {
+      setLoading(true);
+      const items = await getCart();
+      setCartItems(items);
+    } catch (error) {
+      console.error("Error loading cart:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -191,6 +201,15 @@ const Cart = () => {
       </View>
     </View>
   );
+
+  if (loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#007bff" />
+        <Text style={styles.loadingText}>Loading cart...</Text>
+      </View>
+    );
+  }
 
   if (cartItems.length === 0) {
     return (
@@ -406,5 +425,18 @@ const styles = StyleSheet.create({
     fontFamily: "Rubik",
     color: "#666",
     textAlign: "center",
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f8f9fa",
+  },
+  loadingText: {
+    fontSize: 18,
+    fontFamily: "Rubik",
+    fontWeight: "500",
+    color: "#666",
+    marginTop: 16,
   },
 });

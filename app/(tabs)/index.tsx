@@ -26,7 +26,12 @@ const Index = () => {
   }, []);
 
   if (loading) {
-    return <ActivityIndicator color="black" style={styles.loader} />;
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#7f4afcff" />
+        <Text style={styles.loadingText}>Loading products...</Text>
+      </View>
+    );
   }
 
   if (!products) {
@@ -43,16 +48,23 @@ const Index = () => {
 export default Index;
 
 const styles = StyleSheet.create({
-  loader: {
+  loadingContainer: {
     flex: 1,
-    marginTop: 50,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#efefefdf",
+  },
+  loadingText: {
+    marginTop: 16,
+    fontSize: 16,
+    fontFamily: "Rubik",
+    color: "#666",
   },
   errorText: {
     color: "red",
     fontSize: 24,
     fontFamily: "Rubik",
-    marginTop: 20,
+    justifyContent: "center",
+    textAlign: "center",
   },
 });

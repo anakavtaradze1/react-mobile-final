@@ -31,7 +31,12 @@ const ProductScreen = () => {
   }, [id]);
 
   if (loading) {
-    return <ActivityIndicator color="black" style={styles.loader} />;
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#007bff" />
+        <Text style={styles.loadingText}>Loading product...</Text>
+      </View>
+    );
   }
 
   if (!product) {
@@ -54,10 +59,18 @@ const ProductScreen = () => {
 export default ProductScreen;
 
 const styles = StyleSheet.create({
-  loader: {
+  loadingContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#f8f9fa",
+  },
+  loadingText: {
+    fontSize: 18,
+    fontFamily: "Rubik",
+    fontWeight: "500",
+    color: "#666",
+    marginTop: 16,
   },
   errorText: {
     fontSize: 18,

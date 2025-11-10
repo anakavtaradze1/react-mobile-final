@@ -40,6 +40,7 @@ const ProductDetails = ({
 
   return (
     <ScrollView
+      bounces={false}
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false}
     >
