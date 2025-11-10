@@ -70,7 +70,7 @@ export default function RootLayout() {
   }, [router, fontsLoaded]);
 
   if (!fontsLoaded) {
-    return null; // Show loading while fonts load
+    return null; 
   }
 
   return (

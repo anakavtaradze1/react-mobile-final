@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: "#8B5CF6",
     fontFamily: "Rubik",
-    fontWeight: "800",
+    fontWeight: "700",
     marginTop: 8,
   },
   itemPriceLabel: {

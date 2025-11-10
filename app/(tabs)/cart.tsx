@@ -16,13 +16,7 @@ type Product = {
   id: number;
   title: string;
   price: number;
-  description: string;
-  category: string;
   image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
 };
 
 type CartItem = Product & {
@@ -228,7 +222,6 @@ const Cart = () => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderCartItem}
         contentContainerStyle={styles.listContainer}
-        showsVerticalScrollIndicator={false}
       />
 
       <View style={styles.footer}>

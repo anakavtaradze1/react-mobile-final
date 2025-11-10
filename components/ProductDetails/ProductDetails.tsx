@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     fontFamily: "Rubik",
-    fontWeight: "800",
+    fontWeight: "700",
     color: "#000",
     lineHeight: 30,
     marginBottom: 12,
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 30,
     fontFamily: "Rubik",
-    fontWeight: "800",
+    fontWeight: "700",
     color: "#000",
     marginRight: 12,
   },
