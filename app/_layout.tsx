@@ -1,21 +1,22 @@
+import {
+  Rubik_300Light,
+  Rubik_400Regular,
+  Rubik_500Medium,
+  Rubik_600SemiBold,
+  Rubik_700Bold,
+  Rubik_800ExtraBold,
+  Rubik_900Black,
+  useFonts,
+} from "@expo-google-fonts/rubik";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Notifications from "expo-notifications";
 import { Stack, useRouter } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
-import { 
-  useFonts, 
-  Rubik_300Light,
-  Rubik_400Regular, 
-  Rubik_500Medium, 
-  Rubik_600SemiBold, 
-  Rubik_700Bold,
-  Rubik_800ExtraBold,
-  Rubik_900Black
-} from '@expo-google-fonts/rubik';
 
 export default function RootLayout() {
   const router = useRouter();
-  
+
   const [fontsLoaded] = useFonts({
     Rubik_300Light,
     Rubik_400Regular,
@@ -53,7 +54,7 @@ export default function RootLayout() {
     const checkUser = async () => {
       try {
         await requestNotificationPermissions();
-        
+
         const user = await AsyncStorage.getItem("userToken");
         if (user) {
           router.replace("/(tabs)");
@@ -70,20 +71,23 @@ export default function RootLayout() {
   }, [router, fontsLoaded]);
 
   if (!fontsLoaded) {
-    return null; 
+    return null;
   }
 
   return (
-    <Stack>
-      <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen
-        name="products"
-        options={{
-          headerTitle: "Details",
-          headerBackTitle: "Products",
-        }}
-      />
-    </Stack>
+    <>
+      <StatusBar style="dark" />
+      <Stack>
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="products"
+          options={{
+            headerTitle: "Details",
+            headerBackTitle: "Products",
+          }}
+        />
+      </Stack>
+    </>
   );
 }

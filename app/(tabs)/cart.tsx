@@ -237,6 +237,7 @@ const Cart = () => {
       </View>
 
       <FlatList
+        bounces={false}
         data={cartItems}
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderCartItem}
