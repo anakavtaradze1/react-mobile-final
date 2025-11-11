@@ -12,8 +12,8 @@ A modern, feature-rich mobile e-commerce application built with React Native, Ex
 
 <div align="center">
   <img src="./assets/images/screenshot.jpg" width="250" alt="Product Listing" />
-  <img src="./assets/images/screenshot2.jpg" width="250" alt="Shopping Cart" />
-  <img src="./assets/images/screenshot3.jpg" width="250" alt="User Profile" />
+  <img src="./assets/images/screenshot2.jpg" width="250" alt="Product Details" />
+  <img src="./assets/images/screenshot3.jpg" width="250" alt="Shopping Cart" />
 </div>
 
 ## ✨ Features
@@ -36,7 +36,6 @@ A modern, feature-rich mobile e-commerce application built with React Native, Ex
 ### 👤 User Profile
 
 - **Profile Management**: View and manage user information
-- **Address Information**: Complete address details with location data
 - **Swipeable Interface**: Modern carousel-style profile sections
 - **Logout**: Secure session termination
 
@@ -86,6 +85,11 @@ A modern, feature-rich mobile e-commerce application built with React Native, Ex
 ![Expo CLI](https://img.shields.io/badge/Expo_CLI-000020?style=for-the-badge&logo=expo&logoColor=white)
 ![VS Code](https://img.shields.io/badge/VS_Code-0078d4?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+
+### 📱 Device Integration
+
+![Expo Notifications](https://img.shields.io/badge/Expo_Notifications-000020?style=for-the-badge&logo=expo&logoColor=white)
+![Push Notifications](https://img.shields.io/badge/Push_Notifications-FF6B35?style=for-the-badge&logo=bell&logoColor=white)
 
 </div>
 
@@ -277,13 +281,6 @@ The app integrates with FakeStore API for:
 - Proper error handling
 - Responsive design principles
 - Performance optimization
-
-## 🙏 Acknowledgments
-
-- **Expo Team** - For the amazing development platform
-- **FakeStore API** - For providing mock e-commerce data
-- **React Native Community** - For the excellent ecosystem
-- **Design Inspiration** - Modern e-commerce app designs
 
 ---
 
